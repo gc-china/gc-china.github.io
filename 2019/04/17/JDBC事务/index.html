@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JDBC,">
 
 
 
@@ -79,16 +79,23 @@
 
 
 
-<meta name="description" content="记录生活点点滴滴,记录技术学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zerolg">
-<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
+<meta name="description" content="JDBC 事务概念">
+<meta name="keywords" content="JDBC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC事务">
+<meta property="og:url" content="http://yoursite.com/2019/04/17/JDBC事务/index.html">
 <meta property="og:site_name" content="zerolg">
-<meta property="og:description" content="记录生活点点滴滴,记录技术学习">
+<meta property="og:description" content="JDBC 事务概念">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/01/AyCfzV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/01/AyipcV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/17/AxX68H.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/17/AxXLMn.png">
+<meta property="og:updated_time" content="2019-04-17T12:33:34.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zerolg">
-<meta name="twitter:description" content="记录生活点点滴滴,记录技术学习">
+<meta name="twitter:title" content="JDBC事务">
+<meta name="twitter:description" content="JDBC 事务概念">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/01/AyCfzV.png">
 
 
 
@@ -118,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/04/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/17/JDBC事务/">
 
 
 
 
 
-  <title>归档 | zerolg</title>
+  <title>JDBC事务 | zerolg</title>
   
 
 
@@ -153,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,282 +286,300 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/JDBC事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerolg">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">JDBC事务</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T10:22:13+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JDBC/" itemprop="url" rel="index">
+                    <span itemprop="name">JDBC</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/17/JDBC事务/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/17/JDBC事务/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/23/java中操控Cookie 工具类.MD/" itemprop="url">
-              
-                <span itemprop="name">java中操控Cookie 工具类</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T10:20:46+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+              <div class="post-description">
+                  JDBC 事务概念
+              </div>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/17/JDBC事务/" itemprop="url">
-              
-                <span itemprop="name">JDBC事务</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-17T10:22:13+08:00" content="2019-04-17">
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/16/在spring中Resouc注解无法使用/" itemprop="url">
-              
-                <span itemprop="name">在spring中Resouc注解无法使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-16T14:24:31+08:00" content="2019-04-16">
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/14/javase回顾/" itemprop="url">
-              
-                <span itemprop="name">javase回顾</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T16:32:49+08:00" content="2019-04-14">
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/07/mybatis的概述/" itemprop="url">
-              
-                <span itemprop="name">“mybatis的概述”</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T21:39:35+08:00" content="2019-04-07">
-          04-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <h3 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h3><p><strong>概念：</strong> </p>
+<ul>
+<li>事务一般指的数据库事务，是指作为一个程序执行单元执行的一系列操作，要么完全执行，要么完全不执行</li>
+</ul>
+<h3 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h3><ul>
+<li><strong>原子性</strong>：一个事务是一个不可分割的工作单位</li>
+<li><strong>一致性</strong>：事务必须是使数据库 一个一致性状态转换到另一个一致性</li>
+<li><strong>隔离性</strong>： 一个事务的执行不能被其他事务影响</li>
+<li>持久性： 一个事务一旦提交他对数据的的数据改变应该是永久的 </li>
+</ul>
+<h3 id="Mysql-事务处理"><a href="#Mysql-事务处理" class="headerlink" title="Mysql 事务处理"></a>Mysql 事务处理</h3><ul>
+<li><p>mysql 只有Innodb 数据库引擎的数据库支持事务</p>
+<ul>
+<li>show engines 查看服务器的引擎</li>
+<li>default -storage -engine=Innodb —my.ini 修改默认引擎</li>
+</ul>
+</li>
+<li><p>Mysql 默认自动提交模式</p>
+</li>
+<li><p>事务处理语句</p>
+<p>- <code>start transaction</code> ：开始事务 </p>
+<p>- <code>commint</code>: 提交事务 </p>
+<p>- <code>rollback</code> : 回滚 </p>
+<p><img src="https://s2.ax1x.com/2019/04/01/AyCfzV.png" alt="事务操作流程"> </p>
+</li>
+</ul>
+<h3 id="事务并发问题"><a href="#事务并发问题" class="headerlink" title="事务并发问题"></a>事务并发问题</h3><p> 在事务的并发情况,不考虑事务的隔离性 回发生 </p>
+<ul>
+<li><p><font size="5" color="red">脏读 — 最严重不可发生的</font>:指一个事务读取了另外一个事务 未提交的数据 </p>
+</li>
+<li><p>不可重复读 ：在一个事务内多次读取表中的数据，多次读取的结果不同 </p>
+</li>
+<li><p>幻读 ：  </p>
+</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/04/01/AyipcV.png" alt="幻读和不可重复读"> </p>
+<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><ul>
+<li>数据库规定了4中隔离级别 </li>
+</ul>
+<ol>
+<li><code>read uncommitted</code>读未提交，一个事务读到另一个事务没有提交的数据。 </li>
+</ol>
+<ul>
+<li><p>存在：3个问题（脏读、不可重复读、虚读）。 </p>
+</li>
+<li><p>解决：0个问题 </p>
+</li>
+</ul>
+<ol start="2">
+<li><code>read committed</code> 读已提交，一个事务读到另一个事务已经提交的数据。 </li>
+</ol>
+<ul>
+<li><p>存在：2个问题（不可重复读、虚读）。 </p>
+</li>
+<li><p>解决：1个问题（脏读） </p>
+</li>
+</ul>
+<ol start="3">
+<li><code>repeatable read</code>:可重复读，在一个事务中读到的数据始终保持一致，无论另一个事务是否提交。 </li>
+</ol>
+<ul>
+<li><p>存在：1个问题（虚读）。 </p>
+</li>
+<li><p>解决：2个问题（脏读、不可重复读） </p>
+</li>
+</ul>
+<ol start="4">
+<li><code>serializable</code>串行化，同时只能执行一个事务，相当于事务中的单线程。 </li>
+</ol>
+<ul>
+<li><p>存在：0个问题。 </p>
+</li>
+<li><p>解决：3个问题（脏读、不可重复读、虚读） </p>
+</li>
+</ul>
+<h4 id="查看Mysql-的隔离级别"><a href="#查看Mysql-的隔离级别" class="headerlink" title="查看Mysql 的隔离级别"></a>查看Mysql 的隔离级别</h4><p><strong>mysql：8.0以下</strong>：<code>select @@tx_isolation;</code></p>
+<p><strong>mysql 8.0 以上</strong>  <code>select @@transaction_isolation;</code></p>
+<h4 id="设置当前会话设置隔离级别"><a href="#设置当前会话设置隔离级别" class="headerlink" title="设置当前会话设置隔离级别"></a>设置当前会话设置隔离级别</h4><p><strong>set session transaction isolation level XXXX(对应隔离级别);</strong></p>
+<h4 id="隔离离别的安全性和性能差距"><a href="#隔离离别的安全性和性能差距" class="headerlink" title="隔离离别的安全性和性能差距"></a>隔离离别的安全性和性能差距</h4><ul>
+<li>安全性: <code>serializable</code>&gt;<code>repeatable read</code>&gt;  <code>read</code> </li>
+</ul>
+<p><code>committed</code> &gt;  <code>read uncommitted</code></p>
+<ul>
+<li>性能： <code>serializable</code> &lt; <code>repeatable read</code>&lt; <code>read committed</code>&lt; <code>read</code></li>
+</ul>
+<p><code>uncommitted</code></p>
+<h3 id="Spring-事务处理"><a href="#Spring-事务处理" class="headerlink" title="Spring 事务处理"></a>Spring 事务处理</h3><p><img src="https://s2.ax1x.com/2019/04/17/AxX68H.png" alt="Spring 事务处理"></p>
+<h4 id="事务的传播行为"><a href="#事务的传播行为" class="headerlink" title="事务的传播行为"></a>事务的传播行为</h4><p><img src="https://s2.ax1x.com/2019/04/17/AxXLMn.png" alt="事务的传播行为"></p>
+<h3 id="事务管理器"><a href="#事务管理器" class="headerlink" title="事务管理器"></a>事务管理器</h3>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/06/力扣题-解决整数翻转/" itemprop="url">
-              
-                <span itemprop="name">力扣题-解决整数翻转</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-06T10:12:44+08:00" content="2019-04-06">
-          04-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/06/设计模式之_简单工厂模式/" itemprop="url">
-              
-                <span itemprop="name">设计模式_简单工厂模式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-06T10:12:44+08:00" content="2019-04-06">
-          04-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JDBC/" rel="tag"># JDBC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/在spring中Resouc注解无法使用/" rel="next" title="在spring中Resouc注解无法使用">
+                <i class="fa fa-chevron-left"></i> 在spring中Resouc注解无法使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/23/java中操控Cookie 工具类.MD/" rel="prev" title="java中操控Cookie 工具类">
+                java中操控Cookie 工具类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -562,6 +587,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -582,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -687,6 +728,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是事务"><span class="nav-number">1.</span> <span class="nav-text">什么是事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务的特性"><span class="nav-number">2.</span> <span class="nav-text">事务的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-事务处理"><span class="nav-number">3.</span> <span class="nav-text">Mysql 事务处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务并发问题"><span class="nav-number">4.</span> <span class="nav-text">事务并发问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离级别"><span class="nav-number">5.</span> <span class="nav-text">隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看Mysql-的隔离级别"><span class="nav-number">5.1.</span> <span class="nav-text">查看Mysql 的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置当前会话设置隔离级别"><span class="nav-number">5.2.</span> <span class="nav-text">设置当前会话设置隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔离离别的安全性和性能差距"><span class="nav-number">5.3.</span> <span class="nav-text">隔离离别的安全性和性能差距</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-事务处理"><span class="nav-number">6.</span> <span class="nav-text">Spring 事务处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事务的传播行为"><span class="nav-number">6.1.</span> <span class="nav-text">事务的传播行为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务管理器"><span class="nav-number">7.</span> <span class="nav-text">事务管理器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -827,6 +884,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
