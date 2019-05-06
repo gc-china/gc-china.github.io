@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Java,数据结构,排序,">
+  <meta name="keywords" content="工厂方法,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="JavaSe的基本数据结构和基本排序简述">
-<meta name="keywords" content="Java,数据结构,排序">
+<meta name="description" content="对学习完三种工厂模式后的一个总结">
+<meta name="keywords" content="工厂方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaSE 的基本数据结构">
-<meta property="og:url" content="http://yoursite.com/2019/03/19/javaSE-的基本数据结构/index.html">
+<meta property="og:title" content="设计模式-工厂方法总结">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/设计模式-工厂方法总结/index.html">
 <meta property="og:site_name" content="zerolg`blog">
-<meta property="og:description" content="JavaSe的基本数据结构和基本排序简述">
+<meta property="og:description" content="对学习完三种工厂模式后的一个总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T06:40:37.969Z">
+<meta property="og:updated_time" content="2019-05-06T15:24:22.734Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaSE 的基本数据结构">
-<meta name="twitter:description" content="JavaSe的基本数据结构和基本排序简述">
+<meta name="twitter:title" content="设计模式-工厂方法总结">
+<meta name="twitter:description" content="对学习完三种工厂模式后的一个总结">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/19/javaSE-的基本数据结构/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/设计模式-工厂方法总结/">
 
 
 
 
 
-  <title>javaSE 的基本数据结构 | zerolg`blog</title>
+  <title>设计模式-工厂方法总结 | zerolg`blog</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/javaSE-的基本数据结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/设计模式-工厂方法总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javaSE 的基本数据结构</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式-工厂方法总结</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T08:49:25+08:00">
-                2019-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T23:01:52+08:00">
+                2019-05-06
               </time>
             
 
@@ -349,19 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -378,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/19/javaSE-的基本数据结构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/19/javaSE-的基本数据结构/" itemprop="commentCount"></span>
+                <a href="/2019/05/06/设计模式-工厂方法总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/设计模式-工厂方法总结/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  994
+                  130
                 </span>
               
 
@@ -417,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -425,7 +414,7 @@
 
           
               <div class="post-description">
-                  JavaSe的基本数据结构和基本排序简述
+                  对学习完三种工厂模式后的一个总结
               </div>
           
 
@@ -442,55 +431,20 @@
       
 
       
-        <h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
-<li>编程的本质是对数据（信息以数据的形式存在）,实际编程中不得不处理大量的数据，因此实际动手编程之前必须分析这些数据，处理数据之间的关系</li>
-<li>现实的数据元素之间之间有着纷繁复杂的逻辑关系，需要采用的是物理结构来存储这些数据并以这些数据基础对数据进行相应的操作。同时还要在分析这些数据在空间时间的开销优势。</li>
-<li>对于专门研究应用程序中的数据之间逻辑关系，存储方式及其操作就是数据结构。</li>
-</ul>
-<h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><ul>
-<li>数据结构元素之间存在关联关系被称为数据结构的逻辑结构，应用程序的数据结构大致有四种基本逻辑结构：<ul>
-<li>集合：数据集元素之间只存在同数据一个集合的关系</li>
-<li>线性关系 数据元素之间存在一个对应一个的关系</li>
-<li>树状结构：数据元素之间存在一个对多个的关系</li>
-<li>图状结构或者网状结构：数据元素之间存在多个对多个的关系<pre><code>![数据结构](http://www.fxyh97.com/usr/uploads/2018/10/3052981165.png)
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><ul>
-<li>排序算法的目的：通常来说排序的目的就是快速查找</li>
-<li><p>衡量排序算法的优劣</p>
-<ul>
-<li>时间复杂度：分析关键字比较次数和记录的移动次数</li>
-<li>空间复杂度：分析排序算法中需要多少辅助内存</li>
-<li>稳定性 若两个记录A和B的关键字相等，但是排序后A，B的先后次序保存不变，则这算法是稳定的</li>
-</ul>
-</li>
-<li><p>常用的排序算法</p>
-<ul>
-<li>选择排序：直接选择排序，堆排序</li>
-<li>交换排序：冒泡排序，快速排序</li>
-<li>插入排序：直接插入排序 ，折半排序 ，shell排序</li>
-<li>并归排序： 桐式排序 基数排序</li>
-</ul>
-</li>
-<li><p>java中排序工具类：Arrays.sort();</p>
-</li>
-<li>基本算法实现<ul>
-<li>选择排序：要排序的一组数据中，选出最小的一个数与第一个数的位置进行比较交换，然后再剩下的数当中再找最小的与第二的位置进行交换位置，如此循环倒数第二个和最后一个进行比较</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> k = i;<span class="comment">//待确定的位置</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = arr.length-<span class="number">1</span>; j &gt; i; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j] &lt; arr[k])&#123;</span><br><span class="line">                k = j;<span class="comment">//记录第i个最小值位置</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将第i个位置的元素与此轮找到最小的值交换</span></span><br><span class="line">        <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">        arr[i] = arr[k];</span><br><span class="line">        arr[k] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>- 冒泡排序:比较相邻两个元素的大小，如果后一个元素比前一个元素小，则交换两个元素的位置。一轮之后最大的元素会沉到底部。小的元素会逐渐往上浮，故称为冒泡排序
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;                    <span class="comment">//起始比较位置</span></span><br><span class="line">    <span class="keyword">int</span> size = arr.length;            <span class="comment">//数组的元素个数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; j &lt; size-<span class="number">1</span>; i++)&#123;<span class="comment">//外层控制轮次</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; size-<span class="number">1</span>-j; j++)&#123;<span class="comment">//内层进行比较</span></span><br><span class="line">            <span class="keyword">if</span>(arr[j] &gt; a[j+<span class="number">1</span>])&#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">                arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>插入排序：每步将一个待排序的记录，按其顺序码大小插入到前面已经排序的字序列的合适位置(从后向前找到合适位置后),知道全部插入排序完为止</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size = arr.length;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        <span class="comment">//假如temp比前面的值小，则将前面的值后移</span></span><br><span class="line">        <span class="keyword">for</span>(j = i; j &gt; <span class="number">0</span> &amp;&amp; temp &lt; arr[j-<span class="number">1</span>]; j--)&#123;</span><br><span class="line">            arr[j] = arr[j-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转至 <a href="https://www.fxyh97.com/index.php/archives/9/" target="_blank" rel="noopener">JavaSE-数据结构和排序算法</a></p>
-</blockquote>
+        <ol>
+<li>简单工厂</li>
+<li>工厂方法</li>
+<li>抽象工厂</li>
+</ol>
+<h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><ol>
+<li>都是创建型</li>
+<li>用户不需要知道产品创建过程只需要返回的产品对象</li>
+</ol>
+<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><ol>
+<li>简单工厂:用来生产同一等级结构中的任意产品(完全没解耦)</li>
+<li>工厂方法:用来生产同一等级结构中的固定产品(将工厂抽象出来)</li>
+<li>抽象工厂：用来生产不同产品族的全部产品(完全解耦 产品和工厂都解耦出来)</li>
+</ol>
 
       
     </div>
@@ -511,7 +465,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/03/19/javaSE-的基本数据结构/" title="javaSE 的基本数据结构">http://yoursite.com/2019/03/19/javaSE-的基本数据结构/</a>
+    <a href="http://yoursite.com/2019/05/06/设计模式-工厂方法总结/" title="设计模式-工厂方法总结">http://yoursite.com/2019/05/06/设计模式-工厂方法总结/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -526,11 +480,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"> <i class="fa fa-tags"></i> Java</a>
-          
-            <a href="/tags/数据结构/" rel="tag"> <i class="fa fa-tags"></i> 数据结构</a>
-          
-            <a href="/tags/排序/" rel="tag"> <i class="fa fa-tags"></i> 排序</a>
+            <a href="/tags/工厂方法/" rel="tag"> <i class="fa fa-tags"></i> 工厂方法</a>
           
         </div>
       
@@ -543,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/02/设计模式-工厂模式-工厂方法模式/" rel="next" title="设计模式-工厂模式-工厂方法模式">
-                <i class="fa fa-chevron-left"></i> 设计模式-工厂模式-工厂方法模式
+              <a href="/2019/05/06/设计模式-工厂模式-抽象工厂模式/" rel="next" title="设计模式-工厂模式-抽象工厂模式">
+                <i class="fa fa-chevron-left"></i> 设计模式-工厂模式-抽象工厂模式
               </a>
             
           </div>
@@ -552,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/06/力扣题-解决整数翻转/" rel="prev" title="力扣题-解决整数翻转">
-                力扣题-解决整数翻转 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -744,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.</span> <span class="nav-text">数据结构</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑结构"><span class="nav-number"></span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序算法"><span class="nav-number"></span> <span class="nav-text">排序算法</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#共同点"><span class="nav-number">1.</span> <span class="nav-text">共同点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同点"><span class="nav-number">2.</span> <span class="nav-text">不同点</span></a></li></ol></div>
             
 
           </div>
