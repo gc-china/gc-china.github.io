@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,18 +87,17 @@
 <meta property="og:site_name" content="zerolg`blog">
 <meta property="og:description" content="谈谈如何破坏单例设计模式和防止">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWfpUH.png">
 <meta property="og:image" content="http://yoursite.com/Users/gycmacbook/Library/Application%20Support/typora-user-images/image-20190511104810941.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWI3Y4.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWIHcn.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWoBD0.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EW73tS.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EW7f76.png">
-<meta property="og:updated_time" content="2019-05-11T03:56:19.835Z">
+<meta property="og:updated_time" content="2019-05-11T06:21:44.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式-单例模式-破坏单例模式">
 <meta name="twitter:description" content="谈谈如何破坏单例设计模式和防止">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/11/EWfpUH.png">
+<meta name="twitter:image" content="http://yoursite.com/Users/gycmacbook/Library/Application%20Support/typora-user-images/image-20190511104810941.png">
 
 
 
@@ -113,7 +110,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -448,8 +445,6 @@
 <li><p>序列化和反序列化</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line"><span class="comment">//        序列化和反序列化破坏单例</span></span><br><span class="line"><span class="comment">//  创建序列化对象</span></span><br><span class="line">        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"singLeton_file"</span>));</span><br><span class="line"><span class="comment">//      获取单例对象</span></span><br><span class="line">        HungrySingleton instance = HungrySingleton.getHungrySingleton();</span><br><span class="line"><span class="comment">//      序列化对象</span></span><br><span class="line">        oos.writeObject(instance);</span><br><span class="line"><span class="comment">//        创建反序列化对象</span></span><br><span class="line">        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"singLeton_file"</span>)));</span><br><span class="line"><span class="comment">//      反序列对象</span></span><br><span class="line">        HungrySingleton newinstance = (HungrySingleton) ois.readObject();</span><br><span class="line"><span class="comment">//      对比两对象是否为同一对象</span></span><br><span class="line">        System.out.println(instance == newinstance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试结果报错，是忘记了要序列化对象必须实现Serializable类  所以去单例类中实现序列化类</p>
-</li>
-<li><p><img src="https://s2.ax1x.com/2019/05/11/EWfpUH.png" alt="EWfpUH.png"></p>
 </li>
 <li><p>当实例化 进行判断发现该对象不是同一对象 所以破坏了单例中只能实例一个对象的原则</p>
 <p><img src="/Users/gycmacbook/Library/Application Support/typora-user-images/image-20190511104810941.png" alt="image-20190511104810941"></p>
@@ -1289,6 +1284,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
