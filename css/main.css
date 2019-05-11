@@ -1942,7 +1942,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #24b1d9;
+  background: #f6450f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3299,8 +3299,8 @@ body {
 }
 .main-inner {
   background: #fff;
-  opacity: 0.8;
+  opacity: 0.5;
 }
 .header-inner {
-  opacity: 0.8;
+  opacity: 0.5;
 }
