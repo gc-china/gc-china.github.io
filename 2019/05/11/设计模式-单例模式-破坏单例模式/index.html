@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="工厂模式,抽象工厂模式,">
+  <meta name="keywords" content="单例设计模式,">
 
 
 
@@ -81,20 +81,26 @@
 
 
 
-<meta name="description" content="学习抽象工厂模式">
-<meta name="keywords" content="工厂模式,抽象工厂模式">
+<meta name="description" content="谈谈如何破坏单例设计模式和防止">
+<meta name="keywords" content="单例设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-工厂模式-抽象工厂模式">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/设计模式-工厂模式-抽象工厂模式/index.html">
+<meta property="og:title" content="设计模式-单例模式-破坏单例模式">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/设计模式-单例模式-破坏单例模式/index.html">
 <meta property="og:site_name" content="zerolg`blog">
-<meta property="og:description" content="学习抽象工厂模式">
+<meta property="og:description" content="谈谈如何破坏单例设计模式和防止">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/05/06/ED7UNq.png">
-<meta property="og:updated_time" content="2019-05-06T14:50:37.028Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWfpUH.png">
+<meta property="og:image" content="http://yoursite.com/Users/gycmacbook/Library/Application%20Support/typora-user-images/image-20190511104810941.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWI3Y4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWIHcn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EWoBD0.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EW73tS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/11/EW7f76.png">
+<meta property="og:updated_time" content="2019-05-11T03:56:19.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式-工厂模式-抽象工厂模式">
-<meta name="twitter:description" content="学习抽象工厂模式">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/06/ED7UNq.png">
+<meta name="twitter:title" content="设计模式-单例模式-破坏单例模式">
+<meta name="twitter:description" content="谈谈如何破坏单例设计模式和防止">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/11/EWfpUH.png">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/06/设计模式-工厂模式-抽象工厂模式/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/11/设计模式-单例模式-破坏单例模式/">
 
 
 
 
 
-  <title>设计模式-工厂模式-抽象工厂模式 | zerolg`blog</title>
+  <title>设计模式-单例模式-破坏单例模式 | zerolg`blog</title>
   
 
 
@@ -299,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/设计模式-工厂模式-抽象工厂模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/设计模式-单例模式-破坏单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -316,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设计模式-工厂模式-抽象工厂模式</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式-单例模式-破坏单例模式</h1>
         
 
         <div class="post-meta">
@@ -328,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T21:03:32+08:00">
-                2019-05-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-11T10:35:48+08:00">
+                2019-05-11
               </time>
             
 
@@ -369,8 +375,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/06/设计模式-工厂模式-抽象工厂模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/设计模式-工厂模式-抽象工厂模式/" itemprop="commentCount"></span>
+                <a href="/2019/05/11/设计模式-单例模式-破坏单例模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/11/设计模式-单例模式-破坏单例模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -392,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.1k
                 </span>
               
 
@@ -416,7 +422,7 @@
 
           
               <div class="post-description">
-                  学习抽象工厂模式
+                  谈谈如何破坏单例设计模式和防止
               </div>
           
 
@@ -433,57 +439,57 @@
       
 
       
-        <h3 id="抽象工厂-定义与类型"><a href="#抽象工厂-定义与类型" class="headerlink" title="抽象工厂-定义与类型"></a>抽象工厂-定义与类型</h3><ul>
-<li>定义: 抽象工厂模式提供一个创建一系列相关或者相互依赖对象的接口</li>
-<li>无序指定他们指定的类</li>
-<li>类型: 创建型</li>
-</ul>
-<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
-<li>客户端不依赖产品实例如何被创建，实现等细节</li>
-<li>强调一系列相关的产品对象(属于同一产品族) 一起使用创建对象需要大量重复的代码</li>
-<li>提供一个产品类的库,所有的产品以同样的接口出现,从而使客户端不依赖于具体实现</li>
-</ul>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><ol>
-<li><p>创建课程 视频接口 手记接口(抽象产品)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 课程工厂 产品族工厂  课程=视频+手记</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 21:36 2019-05-06</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Param</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CourseFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  Video <span class="title">geteVide</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  Article <span class="title">getArticle</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 视频类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:39</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Video</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <p><strong><em>单例设计模式核心就是:保证只实例化一个对象 但是有没有办法破坏呢 和该如何防止</em></strong></p>
+<h3 id="序列化破坏单例-和防止"><a href="#序列化破坏单例-和防止" class="headerlink" title="序列化破坏单例 和防止"></a>序列化破坏单例 和防止</h3><ol>
+<li>创建饿汉单例设计模式</li>
 </ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zerolg.designmode.designmode.singletonpattern;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 饿汉设计模式</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-11 10:16</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungrySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HungrySingleton hungrySingleton;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        hungrySingleton = <span class="keyword">new</span> HungrySingleton();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">HungrySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungrySingleton <span class="title">getHungrySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hungrySingleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li><p>创键java视频实现类,java手记实现类 python 视频实现类 和python 手记实现类(具体产品)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: java 视频</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:43</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVidoe</span> <span class="keyword">implements</span> <span class="title">Video</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"录制java视频"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: java手记</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:45</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaArticle</span> <span class="keyword">implements</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"编写java手记"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: Python 视频</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:47</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PythonVideo</span> <span class="keyword">implements</span> <span class="title">Video</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"录制Pythion视频"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: Python 手记</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:48</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PythonArticle</span> <span class="keyword">implements</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"编写Python 手记"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>序列化和反序列化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line"><span class="comment">//        序列化和反序列化破坏单例</span></span><br><span class="line"><span class="comment">//  创建序列化对象</span></span><br><span class="line">        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"singLeton_file"</span>));</span><br><span class="line"><span class="comment">//      获取单例对象</span></span><br><span class="line">        HungrySingleton instance = HungrySingleton.getHungrySingleton();</span><br><span class="line"><span class="comment">//      序列化对象</span></span><br><span class="line">        oos.writeObject(instance);</span><br><span class="line"><span class="comment">//        创建反序列化对象</span></span><br><span class="line">        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"singLeton_file"</span>)));</span><br><span class="line"><span class="comment">//      反序列对象</span></span><br><span class="line">        HungrySingleton newinstance = (HungrySingleton) ois.readObject();</span><br><span class="line"><span class="comment">//      对比两对象是否为同一对象</span></span><br><span class="line">        System.out.println(instance == newinstance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果报错，是忘记了要序列化对象必须实现Serializable类  所以去单例类中实现序列化类</p>
+</li>
+<li><p><img src="https://s2.ax1x.com/2019/05/11/EWfpUH.png" alt="EWfpUH.png"></p>
+</li>
+<li><p>当实例化 进行判断发现该对象不是同一对象 所以破坏了单例中只能实例一个对象的原则</p>
+<p><img src="/Users/gycmacbook/Library/Application Support/typora-user-images/image-20190511104810941.png" alt="image-20190511104810941"></p>
 </li>
 </ol>
-<ol start="3">
-<li><p>创建课程工厂(抽象工厂)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 课程工厂 产品族工厂  课程=视频+手记</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 21:36 2019-05-06</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Param</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CourseFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  Video <span class="title">geteVide</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  Article <span class="title">getArticle</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h3><p>这是jdk中序列化和反序列化的时候进行处理 判断如果没用readResolve() 方法 则会从新利用反射实例化 该背序列化的对象 参考 <code>jdk关于ObjectInputStream的readObject()方法</code>     调用栈 <code>readObject---&gt;readObject0---&gt;readOrdinaryObject---&gt;checkResolve</code></p>
+<p><strong>详请参考[<a href="https://www.cnblogs.com/shoneworn/p/6533196.html" target="_blank" rel="noopener">单例模式序列化反序列化单例失效问题</a>]</strong></p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungrySingleton</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HungrySingleton hungrySingleton;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        hungrySingleton = <span class="keyword">new</span> HungrySingleton();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">HungrySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungrySingleton <span class="title">getHungrySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hungrySingleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">readResolve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hungrySingleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   在添加  <code>public Object readResolve() {
+        return hungrySingleton;
+    }</code></p>
+<p> 代码段后 我们在查看测试结果发现有实现单例了</p>
+<p><a href="https://imgchr.com/i/EWI3Y4" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/05/11/EWI3Y4.png" alt="EWI3Y4.png"></a></p>
+<h3 id="反射破坏单例设计模式"><a href="#反射破坏单例设计模式" class="headerlink" title="反射破坏单例设计模式"></a>反射破坏单例设计模式</h3><h4 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 单例破坏单例</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-11 11:01</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException </span>&#123;</span><br><span class="line"><span class="comment">//        单例获取对象</span></span><br><span class="line">        HungrySingleton instance = HungrySingleton.getHungrySingleton();</span><br><span class="line">        Class hsl=HungrySingleton.class;</span><br><span class="line"><span class="comment">//        获取反射对象</span></span><br><span class="line">        Constructor hslClass = hsl.getDeclaredConstructor();</span><br><span class="line"><span class="comment">//        开启暴力破解</span></span><br><span class="line">        hslClass.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//        利用反射对象实例化</span></span><br><span class="line">        HungrySingleton newInstance= (HungrySingleton) hslClass.newInstance();</span><br><span class="line"><span class="comment">//        比较两对象是否为同一对象</span></span><br><span class="line">        System.out.println(<span class="string">"两对象是否还是同一实例"</span> + (instance == newInstance));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2019/05/11/EWIHcn.png" alt="EWIHcn.png"></p>
+<p>所以在饿汉单例设计模式下 利用反射也可以让单例失效</p>
+<h4 id="防止方法"><a href="#防止方法" class="headerlink" title="防止方法"></a>防止方法</h4><blockquote>
+<p>饿汉模式是在类加载的时候就生成了实例 所以我们可以在他调用构照的时候 进行判断 是否创建个实例  如果是被外部调用构照的 直接抛出异常</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">HungrySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hungrySingleton != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span>  <span class="keyword">new</span>  RuntimeException(<span class="string">"单例设计模式不允许反射调用"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以在此测试的时候就会抛出异常</p>
+<p><img src="https://s2.ax1x.com/2019/05/11/EWoBD0.png" alt="EWoBD0.png"></p>
+<h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h3><ol>
+<li>创建懒汉式单例对象</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 懒汉式 线程不安全的  重点与懒加载  只有使用的时候才创建对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-08 11:55</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazySingleton lazySingleton = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  synchronized 加入synchronized 后性能降低 线程安全</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lazySingleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            lazySingleton = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lazySingleton;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>利用反射测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException </span>&#123;</span><br><span class="line">        LazySingleton instance = LazySingleton.getInstance();</span><br><span class="line">        Class hsl = LazySingleton.class;</span><br><span class="line"><span class="comment">//        获取反射对象</span></span><br><span class="line">        Constructor hslClass = hsl.getDeclaredConstructor();</span><br><span class="line"><span class="comment">//        开启暴力破解</span></span><br><span class="line">        hslClass.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//        利用反射对象实例化</span></span><br><span class="line">        LazySingleton newInstance = (LazySingleton) hslClass.newInstance();</span><br><span class="line"><span class="comment">//        比较两对象是否为同一对象</span></span><br><span class="line">        System.out.println(<span class="string">"两对象是否还是同一实例"</span> + (instance == newInstance));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果不除意外肯定也是false  那我们试试和前面一样在构照器中判断是否为空再抛出异常看是否会抛出异常</p>
 </li>
 </ol>
-<ol start="4">
-<li><p>创建java课程工厂 python 课程工厂(具体工厂)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: java课程工厂</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:46</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaCourseFactiory</span> <span class="keyword">implements</span> <span class="title">CourseFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Video <span class="title">geteVide</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JavaVidoe();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Article <span class="title">getArticle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JavaArticle();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: Python 视频工厂</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:49</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PythonCourseFactory</span> <span class="keyword">implements</span> <span class="title">CourseFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Video <span class="title">geteVide</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PythonVideo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Article <span class="title">getArticle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PythonArticle();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="5">
-<li><p>创建测试 </p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: design</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 测试</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Gyc</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-05-06 21:54</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>  </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CourseFactory courseFactory=<span class="keyword">new</span> JavaCourseFactiory();</span><br><span class="line">        courseFactory.getArticle().produce();</span><br><span class="line">        courseFactory.geteVide().produce();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="https://s2.ax1x.com/2019/05/06/ED7UNq.png" alt="ED7UNq.png"></p>
-<h3 id="优点分析"><a href="#优点分析" class="headerlink" title="优点分析"></a>优点分析</h3><ul>
-<li>抽象工厂模式隔离了具体类的生成，使得客户并不需要知道什么被创建。由于这种隔离，更换一个具体工厂就变得相对容易。所有的具体工厂都实现了抽象工厂中定义的那些公共接口，因此只需改变具体工厂的实例，就可以在某种程度上改变整个软件系统的行为。另外，应用抽象工厂模式可以实现高内聚低耦合的设计目的，因此抽象工厂模式得到了广泛的应用。</li>
-<li>当一个产品族中的多个对象被设计成一起工作时，它能够保证客户端始终只使用同一个产品族中的对象。这对一些需要根据当前环境来决定其行为的软件系统来说，是一种非常实用的设计模式。</li>
-<li>增加新的具体工厂和产品族很方便，无须修改已有系统，符合“开闭原则”。</li>
-</ul>
-<h3 id="缺点分析"><a href="#缺点分析" class="headerlink" title="缺点分析"></a>缺点分析</h3><ul>
-<li>在添加新的产品对象时，难以扩展抽象工厂来生产新种类的产品，这是因为在抽象工厂角色中规定了所有可能被创建的产品集合，要支持新种类的产品就意味着要对该接口进行扩展，而这将涉及到对抽象工厂角色及其所有子类的修改，显然会带来较大的不便。</li>
-<li>开闭原则的倾斜性（增加新的工厂和产品族容易，增加新的产品等级结构麻烦）</li>
-</ul>
-<h3 id="适用场景分析"><a href="#适用场景分析" class="headerlink" title="适用场景分析"></a>适用场景分析</h3><ul>
-<li>一个系统不应当依赖于产品类实例如何被创建、组合和表达的细节，这对于所有类型的工厂模式都是重要的。</li>
-<li>系统中有多于一个的产品族，而每次只使用其中某一产品族</li>
-<li>属于同一个产品族的产品将在一起使用，这一约束必须在系统的设计中体现出来</li>
-<li>系统提供一个产品类的库，所有的产品以同样的接口出现，从而使客户端不依赖于具体实现。</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (lazySingleton != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"单例设计模式不允许反射调用"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>测试运行</p>
+<p><img src="https://s2.ax1x.com/2019/05/11/EW73tS.png" alt="EW73tS.png"></p>
+<p>反射和单例获取对象运行顺序调换 ,却没有抛出异常,反射创建到了实例 </p>
+<p><img src="https://s2.ax1x.com/2019/05/11/EW7f76.png" alt="EW7f76.png"></p>
+<blockquote>
+<p>原因是因为 懒汉设计模式是 懒加载的 只要调用的时候才创建实例   所以当反射运行在前的时候  构照判断该对象为空 所以不会抛出异常  所以反射就实例化了该对象 然后在使用单例的时候又创建的实例 在判断的时候创建两个实例 ！ </p>
+</blockquote>
 
       
     </div>
@@ -504,7 +510,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/05/06/设计模式-工厂模式-抽象工厂模式/" title="设计模式-工厂模式-抽象工厂模式">http://yoursite.com/2019/05/06/设计模式-工厂模式-抽象工厂模式/</a>
+    <a href="http://yoursite.com/2019/05/11/设计模式-单例模式-破坏单例模式/" title="设计模式-单例模式-破坏单例模式">http://yoursite.com/2019/05/11/设计模式-单例模式-破坏单例模式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -519,9 +525,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/工厂模式/" rel="tag"> <i class="fa fa-tags"></i> 工厂模式</a>
-          
-            <a href="/tags/抽象工厂模式/" rel="tag"> <i class="fa fa-tags"></i> 抽象工厂模式</a>
+            <a href="/tags/单例设计模式/" rel="tag"> <i class="fa fa-tags"></i> 单例设计模式</a>
           
         </div>
       
@@ -534,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/23/java中操控Cookie 工具类.MD/" rel="next" title="java中操控Cookie 工具类">
-                <i class="fa fa-chevron-left"></i> java中操控Cookie 工具类
+              <a href="/2019/05/08/设计模式-单例设计模式/" rel="next" title="”设计模式-单例设计模式">
+                <i class="fa fa-chevron-left"></i> ”设计模式-单例设计模式
               </a>
             
           </div>
@@ -543,10 +547,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/06/设计模式-工厂方法总结/" rel="prev" title="设计模式-工厂方法总结">
-                设计模式-工厂方法总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -735,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象工厂-定义与类型"><span class="nav-number">1.</span> <span class="nav-text">抽象工厂-定义与类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UML类图"><span class="nav-number">4.</span> <span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点分析"><span class="nav-number">5.</span> <span class="nav-text">优点分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点分析"><span class="nav-number">6.</span> <span class="nav-text">缺点分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景分析"><span class="nav-number">7.</span> <span class="nav-text">适用场景分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化破坏单例-和防止"><span class="nav-number">1.</span> <span class="nav-text">序列化破坏单例 和防止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产生原因："><span class="nav-number">2.</span> <span class="nav-text">产生原因：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射破坏单例设计模式"><span class="nav-number">4.</span> <span class="nav-text">反射破坏单例设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#饿汉式"><span class="nav-number">4.1.</span> <span class="nav-text">饿汉式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防止方法"><span class="nav-number">4.2.</span> <span class="nav-text">防止方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉式"><span class="nav-number">5.</span> <span class="nav-text">懒汉式</span></a></li></ol></div>
             
 
           </div>
