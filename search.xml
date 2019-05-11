@@ -124,8 +124,19 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>工厂方法</tag>
         <tag>工厂模式</tag>
+        <tag>工厂方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
+    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
+    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -138,17 +149,6 @@
       <tags>
         <tag>工厂模式</tag>
         <tag>简单工厂</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
-    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
-    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
