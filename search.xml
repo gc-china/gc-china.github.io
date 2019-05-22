@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数据结构栈]]></title>
+    <url>%2F2019%2F05%2F22%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%88%2F</url>
+    <content type="text"><![CDATA[栈 Stack 栈也是一种线性结构 相对数组，栈对应的操作是数组的子集 只能从一端添加元素，也只能从一端取出元素(栈顶) 后进先出的数据结构 栈的应用 undo (撤销) 程序调用的系统栈(子函数的调用) 括号匹配 基于动态数组代码实现 基于动态数组 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236 package com.zerolg.Stack;/** * @program: com.zerolg.Array.Array * @author: Gyc 数组 * @create: 2019-05-20 10:12 **/public class Array&lt;E&gt; &#123; /** * 初始数组 */ private E[] data; // 数组当前个数 private int size; public Array(Integer capaticy) &#123; data = (E[]) new Object[capaticy]; size = 0; &#125; public Array() &#123; //默认10的容量 this(10); &#125; /** * 获取数组中有多少个容量 * * @return */ public int getSize() &#123; return size; &#125; /** * 获取容量大小 * * @return int */ public int getCapaticy() &#123; return data.length; &#125; /** * 判断数组是否为空 * * @return */ public boolean isemply() &#123; return size == 0; &#125; /** * 向数组尾部中添加元素 * * @param e * @throws Exception */ public void addlist(E e) throws Exception &#123; /* if (size == data.length) &#123; throw new Exception("数组中没有容量了"); &#125; data[size] = e; size++;*/ add(size, e); &#125; /** * 往头部添加数据 * * @param e * @throws Exception */ public void addfrist(E e) throws Exception &#123; add(0, e); &#125; /** * 往指定位置添加元素 * * @param index * @param e */ public void add(int index, E e) throws Exception &#123; if (index &lt; 0 || index &gt; size) &#123; throw new Exception("索引应该小于" + size); &#125; if (size == data.length) &#123; resize((int) (data.length * 1.5)); &#125; for (int i = size - 1; i &gt;= index; i--) &#123; data[i + 1] = data[i]; &#125; data[index] = e; size++; &#125; /** * 获取指定位置的元素 * * @param index * @return */ public E get(int index) throws Exception &#123; if (index &lt; 0 || index &gt;= size) &#123; throw new Exception("索引不应该小于0和大于" + size); &#125; return data[index]; &#125;//获取第一个元素 public E getfrist() throws Exception &#123; return get(0); &#125; //获取最后一个元素 public E getlast() throws Exception &#123; return get(size - 1); &#125; /** * 设置指定位置的元素 * * @param index * @param e * @return * @throws Exception */ public void set(int index, E e) throws Exception &#123; if (index &lt; 0 || index &gt;= size) &#123; throw new Exception("索引不应该小于0和大于" + size); &#125; data[index] = e; &#125; /** * 数据中是否存在该元素 * * @param e * @return */ public boolean contains(E e) &#123; for (int i = 0; i &lt; size; i++) &#123; if (data[i].equals(e)) &#123; return true; &#125; &#125; return false; &#125; /** * 查看该元素索引 * * @param e * @return */ public int find(E e) &#123; for (int i = 0; i &lt; size; i++) &#123; if (data[i].equals(e)) &#123; return i; &#125; &#125; return -1; &#125; /** * 删除元素 * * @param index */ public E remove(int index) throws Exception &#123; if (index &lt; 0 || index &gt; size) &#123; throw new Exception("索引应该小于" + size); &#125; for (int i = index + 1; i &lt; size; i++) &#123; data[i - 1] = data[i]; &#125; if (size &lt;= data.length / 2) &#123; resize(data.length / 2); &#125; size--; data[size] = null; return data[index]; &#125; //从数组中删除第后元素 public E removelast() throws Exception &#123; remove(size - 1); return get(size - 1); &#125; //从数组中删除第一个元素 public void removefrist() throws Exception &#123; remove(0); &#125; //从数组中删除元素e public void removeElment(E e) throws Exception &#123; int i = find(e); if (i != -1) &#123; remove(i); &#125; &#125; @Override public String toString() &#123; StringBuilder str = new StringBuilder(); str.append(String.format("Array: size= %d , capacity= %d\n", size, data.length)); str.append('['); for (int i = 0; i &lt; size; i++) &#123; str.append(data[i]); if (i != size - 1) &#123; str.append(","); &#125; &#125; str.append("]"); return str.toString(); &#125; // 动态扩容 private void resize(int newCapacity) &#123; E[] newdata = (E[]) new Object[newCapacity]; for (int i = 0; i &lt; size; i++) &#123; newdata[i] = data[i]; &#125; data = newdata; &#125;&#125; 栈的基本实现1234567891011121314151617181920212223242526272829303132package com.zerolg.Stack;public interface Stack&lt;E&gt; &#123; /** * 获取栈的中的元素个数 * * @return */ int getSize(); /** * 判断栈中有没有这元素 * * @return */ boolean isEmpty(); /** * 添加元素 **/ void push(E e) throws Exception; /** * 取出元素 **/ E pop() throws Exception; /** * 查看栈顶元素 **/ E peek() throws Exception;&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091package com.zerolg.Stack;/** * @program: Array * @description: 基于数组实现栈 * @author: Gyc * @create: 2019-05-22 21:38 **/public class ArrayStatck&lt;E&gt; implements Stack&lt;E&gt; &#123; Array&lt;E&gt; array; public ArrayStatck(int capacity) &#123; array = new Array&lt;&gt;(capacity); &#125; ArrayStatck() &#123; array = new Array&lt;&gt;(); &#125; /** * 获取栈中多少元素 **/ @Override public int getSize() &#123; return array.getSize(); &#125; /** * 获取栈中是否存在元素 **/ @Override public boolean isEmpty() &#123; return array.isemply(); &#125; /** * 添加元素 * * @param o */ @Override public void push(E e) throws Exception &#123; array.addlist(e); &#125; /** * 查看栈容量 **/ public int getCapacity() &#123; return array.getCapaticy(); &#125; /** * 取出元素 **/ @Override public E pop() throws Exception &#123; return array.removelast(); &#125; /** * 查看栈顶元素 **/ @Override public E peek() throws Exception &#123; return array.getlast(); &#125; public String toString() &#123; StringBuilder str = new StringBuilder(); str.append("Stack"); str.append('['); for (int i = 0; i &lt; array.getSize(); i++) &#123; try &#123; str.append(array.get(i)); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; if (i != array.getSize() - 1) &#123; str.append(","); &#125; &#125; str.append("] top"); return str.toString(); &#125;&#125; 用栈实现括号匹配12345678910111213141516171819202122232425262728293031323334353637383940414243 package com.zerolg;import java.util.Stack;/** * @program: Array * @description: Solution * @author: Gyc * @create: 2019-05-23 00:07 **/public class Solution &#123; Stack&lt;Character&gt; stack = new Stack&lt;&gt;(); public static void main(String[] args) &#123; Solution solution = new Solution(); boolean isvalid = solution.isvalid("()[]&#123;&#125;"); System.out.println(isvalid); &#125; public boolean isvalid(String s) &#123; for (int i = 0; i &lt; s.length(); i++) &#123; char c = s.charAt(i); if (c == '(' || c == '&#123;' || c == '[') stack.push(c); else &#123; if (stack.isEmpty()) return false; char pop = stack.pop(); if (c == ')' &amp;&amp; pop != '(') return false; if (c == ']' &amp;&amp; pop != '[') return false; if (c == '&#125;' &amp;&amp; pop != '&#123;') return false; &#125; &#125; return stack.isEmpty(); &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[记录ssm整合中不能加载mybatis的xml文件]]></title>
+    <url>%2F2019%2F05%2F17%2F%E8%AE%B0%E5%BD%95ssm%E6%95%B4%E5%90%88%E4%B8%AD%E4%B8%8D%E8%83%BD%E5%8A%A0%E8%BD%BDmybatis%E7%9A%84xml%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[记录一下在复习ssm 整合的时候 一直导致不能加载mybatis.xml 文件 导致的无法绑定 1：检查xml文件所在的package名称是否和interface对应的package名称一一对应 2：检查xml文件的namespace是否和xml文件的package名称一一对应 3：检查函数名称能否对应上 4：去掉xml文件中的中文注释 在百度N个小时的时候后 按以上的方法一一试了一遍后问题还是没有解决！猜想是不是没有加载到这个文件 才导致没有找到才不能绑定的 然后就去尝试看了下发布过后的项目结构 ！ 发现*.xml 没有发布到classes目录下 ！ 导致原因idea中我将mapper类型是source，而xml文件在发布时不会编译，同时也不会发布到target中，导致项目运行时找不到mapper.xml文件。 解决方法]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[redis 的基本使用]]></title>
+    <url>%2F2019%2F05%2F12%2Fredis-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[redis 中的常用基本命令 keys keys * 查询所有的key值 keys hell? 查询hell开头后面还有任意一位的key 值 keys 后面支持通配符的 一般keys 不怎么常用 dbsize 查看数据量多少key值 exists key 查看是否有该key 值 存在就返回1 不存在就返回0 del key :删除对于的key 值 删除成功为1 失败为0 del 也可以同时删除多个值 返回值为成功删除个数 expire key seconds 设置过期时间 ttl key 查看还有多久过期 persist key 去除过期时间 type typ key 查看key 的类型、 基本命令的时间复杂度 命令 时间复杂度 keys O(n) dbsize O(1) del O(1) exists O(1) type O(1)]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux基本命令]]></title>
+    <url>%2F2019%2F05%2F11%2FLinux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[命令的基本使用`[root@localhost] root: 用户名 ~ 表示当前地址 localhost 主机名 命令的基本格式 命令[选项] [参数] 查询目录的内容命令格式ls[选项] [文件或者目录] 选项： -a 所有文件 -l 查看详情 -d 查看目录属性 -h 显示文件大小 文件夹处理命令 创建目录12mkdir - p[目录名]-p 表述递归建文件夹 切换目录123456789cd [目录]cd ~ 进入当前用户目录cd - 进入上次目录cd .. 进入上一级目录pwd 查看当前目录所在位置 删除目录123456789101112131415161718rmdir [目录]rmdir -rf[目录] 删除目录中所以的文件命令：rm [-rf] 目录删除文件：rm 文件 删除当前目录下的文件rm -f 文件 删除当前目录的的文件（不询问）删除目录：rm -r aaa 递归删除当前目录下的aaa目录rm -rf aaa 递归删除当前目录下的aaa目录（不询问）全部删除：rm -rf * 将当前目录下的所有目录和文件全部删除rm -rf /* 【自杀命令！慎用！慎用！慎用！】将根目录下的所有文件全部删除注意：rm不仅可以删除目录，也可以删除其他文件或压缩包，为了方便大家的记忆，无论删除任何目录或文件，都直接使用 rm -rf 目录/文件/压缩包 复制目录1234cp[选项][原文件路径][更改文件路径] 选项： -r 复制目录 -p 连文件属性一起复制 重命名 和剪切MV123456789一、重命名目录 命令：mv 当前目录 新目录 例如：mv aaa bbb 将目录aaa改为bbb 注意：mv的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行 重命名的操作二、剪切目录 命令：mv 目录名称 目录的新位置 示例：将/usr/tmp目录下的aaa目录剪切到 /usr目录下面 mv /usr/tmp/aaa /usr 注意：mv语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作 常见文件作用 12345678/根目录/bin 命令保存目录/boot 启动目录/dev 设备文件命令/etc 配置文件保存目录/home 家目录/lib 系统保存命令/mnt 系统挂载命令文件的操作 文件的新建 1touch 文件名 文件的删除 1rm -rf 文件名 文件的修改 12345678910111213141516171819202122vi编辑器的3种模式】 基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：1) 命令行模式command mode） 控制屏幕光标的移动，字符、字或行的删除，查找，移动复制某区段及进入Insert mode下，或者到 last line mode。 命令行模式下的常用命令： 【1】控制光标移动：↑，↓，j 【2】删除当前行：dd 【3】查找：/字符 【4】进入编辑模式：i o a 【5】进入底行模式：: 2) 编辑模式（Insert mode） 只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。 编辑模式下常用命令： 【1】ESC 退出编辑模式到命令行模式； 3) 底行模式（last line mode） 将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 底行模式下常用命令： 【1】退出编辑： :q 【2】强制退出： :q! 【3】保存并退出： :wq 文件的查看12345678 ### 查看最后一屏 cat[文件名]### 百分比查看more [文件名称]### less 翻页查看less[文件名]### tail 指定行数查看tail -[行数][文件名] 查看进程1ps -ef 查看所有正在运行的进程 结束进程123kill pid(进程号)### 强制结束kill - 9 pid(进程号) 压缩和解压命令 zip 格式 123456### 压缩文件zip[压缩文件名][原文件]## 压缩目录zip -r [压缩文件名][原文件]### 解压unzip[压缩文件名] gz格式 12345678### 压缩文件gzip[原文件]### 压缩文件夹gzip -r [目录]### 解压guzip [文件]### 解压目录guzip -r [文件目录] tar 123tar-cvf 打包文件名 原文件### 解压tar -xvf [解缩文件名] tar.gz 123tar -zcvf 压缩包名.targz 原文件### 解压tar -zxvf 解压包名.targz 关机重启1234567shutdown[选项][时间]选项： - c 取消前一个关机命令 -h now 立即关机 -r now 立即重启 reboot 重启启动 logout 退出登入 ####]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[设计模式-单例模式-破坏单例模式]]></title>
     <url>%2F2019%2F05%2F11%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E7%A0%B4%E5%9D%8F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[单例设计模式核心就是:保证只实例化一个对象 但是有没有办法破坏呢 和该如何防止 序列化破坏单例 和防止 创建饿汉单例设计模式 12345678910111213141516171819202122package com.zerolg.designmode.designmode.singletonpattern;/** * @program: design * @description: 饿汉设计模式 * @author: Gyc * @create: 2019-05-11 10:16 **/public class HungrySingleton &#123; private static HungrySingleton hungrySingleton; static &#123; hungrySingleton = new HungrySingleton(); &#125; private HungrySingleton() &#123; &#125; public static HungrySingleton getHungrySingleton() &#123; return hungrySingleton; &#125;&#125; 序列化和反序列化 1234567891011121314151617public class Test &#123; public static void main(String[] args) throws IOException, ClassNotFoundException &#123;// 序列化和反序列化破坏单例// 创建序列化对象 ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singLeton_file"));// 获取单例对象 HungrySingleton instance = HungrySingleton.getHungrySingleton();// 序列化对象 oos.writeObject(instance);// 创建反序列化对象 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("singLeton_file")));// 反序列对象 HungrySingleton newinstance = (HungrySingleton) ois.readObject();// 对比两对象是否为同一对象 System.out.println(instance == newinstance); &#125;&#125; 测试结果报错，是忘记了要序列化对象必须实现Serializable类 所以去单例类中实现序列化类 当实例化 进行判断发现该对象不是同一对象 所以破坏了单例中只能实例一个对象的原则 产生原因：这是jdk中序列化和反序列化的时候进行处理 判断如果没用readResolve() 方法 则会从新利用反射实例化 该背序列化的对象 参考 jdk关于ObjectInputStream的readObject()方法 调用栈 readObject---&gt;readObject0---&gt;readOrdinaryObject---&gt;checkResolve 详请参考[单例模式序列化反序列化单例失效问题] 解决方法123456789101112131415161718public class HungrySingleton implements Serializable &#123; private static HungrySingleton hungrySingleton; static &#123; hungrySingleton = new HungrySingleton(); &#125; private HungrySingleton() &#123; &#125; public static HungrySingleton getHungrySingleton() &#123; return hungrySingleton; &#125; public Object readResolve() &#123; return hungrySingleton; &#125;&#125; 在添加 public Object readResolve() { return hungrySingleton; } 代码段后 我们在查看测试结果发现有实现单例了 反射破坏单例设计模式饿汉式12345678910111213141516171819202122/** * @program: design * @description: 单例破坏单例 * @author: Gyc * @create: 2019-05-11 11:01 **/public class Test2 &#123; public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException &#123;// 单例获取对象 HungrySingleton instance = HungrySingleton.getHungrySingleton(); Class hsl=HungrySingleton.class;// 获取反射对象 Constructor hslClass = hsl.getDeclaredConstructor();// 开启暴力破解 hslClass.setAccessible(true);// 利用反射对象实例化 HungrySingleton newInstance= (HungrySingleton) hslClass.newInstance();// 比较两对象是否为同一对象 System.out.println("两对象是否还是同一实例" + (instance == newInstance)); &#125;&#125; 所以在饿汉单例设计模式下 利用反射也可以让单例失效 防止方法 饿汉模式是在类加载的时候就生成了实例 所以我们可以在他调用构照的时候 进行判断 是否创建个实例 如果是被外部调用构照的 直接抛出异常 12345private HungrySingleton() &#123; if (hungrySingleton != null) &#123; throw new RuntimeException("单例设计模式不允许反射调用"); &#125;&#125; 所以在此测试的时候就会抛出异常 懒汉式 创建懒汉式单例对象 123456789101112131415161718192021222324/** * @program: design * @description: 懒汉式 线程不安全的 重点与懒加载 只有使用的时候才创建对象 * @author: Gyc * @create: 2019-05-08 11:55 **/public class LazySingleton &#123; private static LazySingleton lazySingleton = null; private LazySingleton() &#123; &#125; /** * synchronized 加入synchronized 后性能降低 线程安全 * @return */ public static synchronized LazySingleton getInstance() &#123; if (lazySingleton == null) &#123; lazySingleton = new LazySingleton(); &#125; return lazySingleton; &#125;&#125; 利用反射测试 12345678910111213 public void test2() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException &#123; LazySingleton instance = LazySingleton.getInstance(); Class hsl = LazySingleton.class;// 获取反射对象 Constructor hslClass = hsl.getDeclaredConstructor();// 开启暴力破解 hslClass.setAccessible(true);// 利用反射对象实例化 LazySingleton newInstance = (LazySingleton) hslClass.newInstance();// 比较两对象是否为同一对象 System.out.println("两对象是否还是同一实例" + (instance == newInstance)); &#125;&#125; 结果不除意外肯定也是false 那我们试试和前面一样在构照器中判断是否为空再抛出异常看是否会抛出异常 12345private LazySingleton() &#123; if (lazySingleton != null) &#123; throw new RuntimeException("单例设计模式不允许反射调用"); &#125; &#125; 测试运行 反射和单例获取对象运行顺序调换 ,却没有抛出异常,反射创建到了实例 原因是因为 懒汉设计模式是 懒加载的 只要调用的时候才创建实例 所以当反射运行在前的时候 构照判断该对象为空 所以不会抛出异常 所以反射就实例化了该对象 然后在使用单例的时候又创建的实例 在判断的时候创建两个实例 ！]]></content>
@@ -124,19 +168,8 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>工厂模式</tag>
         <tag>工厂方法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
-    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
-    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
+        <tag>工厂模式</tag>
       </tags>
   </entry>
   <entry>
@@ -152,12 +185,22 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
+    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
+    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Tomcat闪退解决]]></title>
     <url>%2F2019%2F01%2F09%2FTomcat%E9%97%AA%E9%80%80%E8%A7%A3%E5%86%B3%2F</url>
     <content type="text"><![CDATA[1.寻找原因要解决原因 肯定要先找到原因啦,进入命令行提示符程序中找到tocmcat程序bin目录下的startup.bat windos+R 输入cmd 然后确定进入命令提示符程序 1CD D:Tocamt\apache-tomcat-7.0.88\bin \startup.bat 2.(这个Tomcat 路径 根据个人情况下的Tomcat路径) 运行 查看错误情况 1.如果提示缺少JAVA_HOME或者JRE_HOME则是 java基本环境变量出错 2.如果缺少CATALINA_HOME(如图所示) 则需要配置CATALINA_HOME变量 2.解决方案1 .配置JAVA基本环境这个网上有一大推我就不写了 ,网上搜搜就来了 配置好了后 重新启动Tomcat 程序就好了2.配置 CATALINA_HOME 变量错误提示缺少 catalin_home 环境变量 计算机-属性-高级系统设置-环境变量 -新建环境变量 - 变量名字 CATALINA_HOME 变量值 Tomcat 解压位置 PATH 添加刚才的环境变量 1%CATALINA_HOME%\bin (这个Tomcat 路径 根据个人情况下的Tomcat路径) 运行 3.重新启动Tomcat 然后去http://localhost:8080, 看是否启动正常4.关闭Tomcat 1/shutdown.bat]]></content>
       <categories>
-        <category>java</category>
-        <category>填过的坑</category>
+        <category>Tomcat</category>
       </categories>
       <tags>
         <tag>Tomcat</tag>
@@ -168,12 +211,11 @@
     <url>%2F2019%2F01%2F09%2Flinux%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEjdk%E3%80%81tomcat%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[安装ＪＤＫ 先查看下有没有安装openjdk 1dpkg -l | grep openjdk 2.安装的话，使用下面命令卸载 1sudo apt remove openjdk* 3.jdk下载戳我进入下载 进入官网后点 accept 然后找对应的系统版本的jdk下载即可。 ４.然后将下载下来的压缩包解压到一个你找的到路径（我这里放到/usr/java下，并且重命名了） 12sudo tar -xzf jdk-8u181-linux-x64.tar.gz -C /usr/java/sudo mv /usr/java/jdk1.8.0_181/ /usr/java/jdk 5.配置环境变量 linux中环境变量可以在以下几个文件中配置，不过不同的文件实现不同： 1234- `/etc/envirnment`:配置的是整个系统的环境变量- `/etc/profile`:配置所有用户的环境变量- `~/.profile`:配置*当前*用户的环境变量- `~/.bashrc`:每次加载bash时加载的环境配置 所以我们使用第二个就好了 1 不过需要注意的是，在/etc/environment 中不能包含命令，即直接通过VAR=”…”的方式设置，不使用 export。而在/etc/profile中可以使用export来添加环境变量。 然后直接在终端输入下面的命令就可以了。 1234567１．sudo echo &apos;####JDK环境变量配置####２．export JAVA_HOME=/usr/java/jdk３．export JRE_HOME=$JAVA_HOME/jre４．export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib５．export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH&apos; &gt;&gt; /etc/profile 然后，source /etc/profile生效配置。 然后在终端输入java -version,如果输出是下面则成功了： 1231.java version &quot;1.8.0_181&quot;2.Java(TM) SE Runtime Environment (build 1.8.0_181-b13)3.Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode) 安装tomcat由于我们已经配置好了jdk，所以可以直接来下载tomcat tomcat下载：戳我下载tomcat 解压文件到一个你能找的到目录下（这里解压到/usr/tomcat）： 12341.sudo mkdir ~/tomcat2.sudo tar -xzvf apache-tomcat-9.0.12.tar.gz -C ~/tomcat3.sudo mv ~/tomcat/apache-tomcat-9.0.12/* ~/tomcat4.sudo rm -r ~/tomcat/apache-tomcat-9.0.12 4.启动tomcat服务，进入解压目录下的/bin目录，运行./startup.sh,如果显示如下命令则，正常安装成功。 12345671.Using CATALINA_BASE: /home/weison/tomcat2.Using CATALINA_HOME: /home/weison/tomcat3.Using CATALINA_TMPDIR: /home/weison/tomcat/temp4.Using JRE_HOME: /usr/java/jdk/jre5.Using CLASSPATH: /home/weison/tomcat/bin/bootstrap.jar:/home/weison/tomcat/bin/tomcat- juli.jar6.Tomcat started.]]></content>
       <categories>
-        <category>java</category>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>linux</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
