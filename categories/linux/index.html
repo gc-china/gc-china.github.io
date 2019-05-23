@@ -82,7 +82,7 @@
 <meta name="description" content="记录生活点点滴滴,记录技术学习">
 <meta property="og:type" content="website">
 <meta property="og:title" content="zerolg`blog">
-<meta property="og:url" content="http://yoursite.com/categories/linux/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/Linux/index.html">
 <meta property="og:site_name" content="zerolg`blog">
 <meta property="og:description" content="记录生活点点滴滴,记录技术学习">
 <meta property="og:locale" content="zh-Hans">
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/linux/">
+  <link rel="canonical" href="http://yoursite.com/categories/Linux/">
 
 
   <script>
@@ -132,7 +132,7 @@
 
 
 
-  <title>分类: linux | zerolg`blog</title>
+  <title>分类: Linux | zerolg`blog</title>
   
 
 
@@ -294,7 +294,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>linux<small>分类</small>
+        <h1>Linux<small>分类</small>
         </h1>
       </div>
 
@@ -306,42 +306,16 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/05/11/Linux基本命令/" itemprop="url">
+            <a class="post-title-link" href="/2019/01/09/linux下安装和配置jdk、tomcat的详细教程/" itemprop="url">
               
-                <span itemprop="name">Linux基本命令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-11T20:39:46+08:00" content="2019-05-11">
-          05-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/09/deepin安装MySQL没有弹出设置root密码怎么进行修改/" itemprop="url">
-              
-                <span itemprop="name">deepin安装MySQL没有弹出设置root密码怎么进行修改</span>
+                <span itemprop="name">linux 环境下安装jdk和Tomcat</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-09T13:01:39+08:00" content="2019-01-09">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-09T12:34:52+08:00" content="2019-01-09">
           01-09
         </time>
       </div>
@@ -405,7 +379,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -427,7 +401,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -524,7 +498,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.9k</span>
+    <span title="Site words total count">13.9k</span>
   
 </div>
 
@@ -1017,6 +991,50 @@
     });
     $(document).on('keyup', function (event) {
       var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+ shouldDismissSearchPopup = event.which === 27 &&
         $('.search-popup').is(':visible');
       if (shouldDismissSearchPopup) {
         onPopupClose();
