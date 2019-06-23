@@ -386,7 +386,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2019/05/11/Linux基本命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/11/Linux基本命令/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/05/11/Linux基本命令/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -614,7 +614,11 @@
 
   
     <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
     </div>
+
   
 
 
@@ -733,14 +737,6 @@
                 
                   <li class="links-of-blogroll-item">
                     <a href="https://github.com/Snailclimb/JavaGuide" title="JavaGuide" target="_blank">JavaGuide</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.funtl.com/" title="撸帝" target="_blank">撸帝</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://ocd.ooo" title="OCD" target="_blank">OCD</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -965,30 +961,45 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'gc-china',
+            repo: 'hexo',
+            
+            lang: "-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '4dfd9d7366cd64ee11a7a146e88ad2fa3749ab7a',
+            
+                client_id: 'b3ae06ff693eea71cc96'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.4/dist/Valine.min.js" < script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'sOJNmUJOoWLVTucnRSY7nNWF-gzGzoHsz',
-        appKey: 'mrrP1MFHVYypQBegG5xlSkvD',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'15' || 10,
-    });
-  </script>
+
 
 
 
