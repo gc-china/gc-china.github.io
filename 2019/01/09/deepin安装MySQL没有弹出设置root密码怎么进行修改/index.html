@@ -521,8 +521,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/09/Tomcat闪退解决/" rel="next" title="Tomcat闪退解决">
-                <i class="fa fa-chevron-left"></i> Tomcat闪退解决
+              <a href="/2019/01/09/设计模式-工厂模式-简单工厂模式/" rel="next" title="设计模式-工厂模式-简单工厂模式">
+                <i class="fa fa-chevron-left"></i> 设计模式-工厂模式-简单工厂模式
               </a>
             
           </div>
@@ -531,8 +531,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/09/设计模式-工厂模式-简单工厂模式/" rel="prev" title="设计模式-工厂模式-简单工厂模式">
-                设计模式-工厂模式-简单工厂模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/02/设计模式-工厂模式-工厂方法模式/" rel="prev" title="设计模式-工厂模式-工厂方法模式">
+                设计模式-工厂模式-工厂方法模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -571,7 +571,8 @@
   
     <div class="comments" id="comments">
       
-        <div id="gitment-container"></div>
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
       
     </div>
 
@@ -926,6 +927,11 @@
 <!-- END LOCAL -->
 
     
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
 
     
       <script type="text/javascript">
@@ -948,7 +954,11 @@
       }
 
       
-      renderGitment();
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
       
       </script>
     
