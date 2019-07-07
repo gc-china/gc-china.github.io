@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[redis-持久化]]></title>
+    <url>%2F2019%2F07%2F07%2Fredis-%E6%8C%81%E4%B9%85%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[Redis 的持久化 —AOF 模式AOF 运行原理(日志的形式) AOF 的三种策略 always (每条策略) always——&gt; 缓存区——&gt; AOF文件 每条命令都会写入硬盘中 everysec(每秒策略） always——&gt; 缓存区——&gt; AOF文件 每秒把缓存区fsync硬盘中 no 根据操作系统决定 三种策略比较| 命令 | always | everysec | no | | —- | ———- | ————————– | —— | | 优点 | 不丢失数据 | 每秒一次fsync 丢失一秒数据 | 不用管 | | 缺点 | IO开销大 | 丢一秒数据 | 不可控 | Redis 的持久化—–Rdb 模式 RDB: 在持久化本地创建一个red后缀的文件, 在恢复时,然后启动载入，等于设置了个快照 触发机制 Sava(同步):这是条同步命令 在执行这条命令后 所有其他的命名必须去排队 等它执行完毕才能 - 在执行save命令后 因为他是条同步命令，其他命令必须等它执行完毕才能执行 所以当数据量过大的时候容易造成阻塞 bgsave (异步) 在执行这条命令后，会返回ok 然后在后台执行 | 命令 | save | bgsave | | ——– | ———————————- | ——————————- | | IO 类型 | 同步 | 异步 | | 是否阻塞 | 是 | 不是(但是阻塞发生在Fork) | | 复杂度 | O(n) | O(n) | | 优缺点 | 不会消耗额为内存，但是会阻塞客户端 | 不阻塞客户端，需要fork 消耗内存 | 自动生成RDB 在某些条件达到的时候，自动生成 (内部生成bgsave) | 配置 | seconds(在指定时间/秒) | changes (改变数据条数) | | —- | ———————- | ———————- | | save | 900 | 1 | | save | 300 | 10 | | save | 60 | 10000 | Rdb 文件配置 dbfilename: dump.rdb(生成的rdb文件名称) dir ./(生成文件的路径) stop-writes-on-bgsave-erro yes (在bgsave 保存的时候是否停止写入) rdbcompression yes (是否已压缩的格式写入rdb文件) rdbchecksum yes (是否rdb文件进行检验) 最佳配置 不使用默认自动生成rdb文件 dbfilename ${port}.rdb 以端口号命名 dir /bigdiskpath 特定的目录 stop-writes-on-bgsave-erro yes bgsave 发生错误的时候停止写入 ​ RDB 总结 RDB 是redis 内存到硬盘的快照，用于持久化 save 通常会阻塞Redis basave 不会阻塞Redis 但是会fork 新进程 save 自动配置满足任一就会被执行 比较耗时耗性能 容易丢失数据 Redis 的主从复制设置主从关系 临时主从关系 SLAVEOF 主ip 主端口 永久主从 redis. config 中添加 SLAVEOF 主ip 主端口 从库只读不写 slaveof-read-only：yes/on 主从复制原理 当主redis和从redis 建立MS 关系的时候，从库会向主发送PSYNC 命令 主库收到PSYNC 命令后会开始在后台保存快照数据(rdb 快照)并且在快照期间写的命令加入缓存，在快照写入完毕的时候将快照和缓存一并发送给从redis 从redis 接收到快照和缓存后 ，载入快照文件并写入缓存命令 之后每次主redis 进行写操作事，都会将命令发送给从redis 从而保证数据的一致性 当redis 宕机后处理 当从redis 宕机时 ，处理方式 从redis 重新启动后会自动加入主从架构中，自动完成同步数据 redis 2.8 就实现类 主从断线后恢复为增量复制 主redis 宕机 当主redis 宕机后，先在从redis 中执行 SLAVEOF NO ONE 命令，断开主从关系并提升为主库，然后重启宕机的主库 并执行SLAVEOF 命令 降为从库,这样数据就能同步起来 Redis 的哨兵机制 哨兵的作用就是对redis 集群的监控，它是一个独立的进程 哨兵的功能 监控主从数据库是否正常 主数据出现的故障后自动将从数据库转为主数据库 原理 启动哨兵命令 Redis -sentinel sentinel.config]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据结构- 链表]]></title>
     <url>%2F2019%2F05%2F25%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[概述 链表 真正的动态数据结构 最简单的动态数据结构 更好深入了理解引用 更好理解递归 链表 Linked List 数据是储存在节点(Node)中 优缺点 优点：真正的动态,不需要处理固定的容量问题 缺点： 不能随机访问(不能根据索引查找数据) 所以查找较慢 数组和链表的对比 数组最好用于索引有语意的情况 scores[2] 支持快速查询 链表不适索引有语意的情况 最大的有点：动态 用java创建链表1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192package com.zerolg.Linklist;/** * @program: Array * @description: 用java 实现链表 * @author: Gyc * @create: 2019-05-25 11:24 **/public class LinkList&lt;E&gt; &#123; private int size; private Node head; public LinkList() &#123; head = null; size = 0; &#125; /** * 获取链表的元素个数 **/ public int getSize() &#123; return size; &#125; /** * 判断链表是否为空 **/ public boolean isEmpty() &#123; return size != 0; &#125; /** * 向链表头添加元素 **/ public void addFrist(E e) &#123; Node node = new Node(e); node.next = head; head = node; size++; &#125; /** * 在index在中添加一个元素 **/ public void add(int index, E e) throws Exception &#123; if (index &lt; 0 || index &gt; size) &#123; throw new Exception("索引错了"); &#125; if (index == 0) &#123; addFrist(e); &#125; else &#123; Node prev = head; for (int i = 0; i &lt; index - 1; i++) &#123; prev = prev.next; &#125; Node node = new Node(e); node.next = prev.next; prev.next = node; size++; &#125; &#125; /**在尾部添加元素**/public void addlist(E e) throws Exception &#123; add(size, e);&#125; // 链表的内部节点 private class Node &#123; public E e; public Node next; public Node(E e, Node next) &#123; this.e = e; this.next = next; &#125; public Node(E e) &#123; this(e, null); &#125; public Node() &#123; this(null, null); &#125; @Override public String toString() &#123; return e.toString(); &#125; &#125;&#125;]]></content>
@@ -183,17 +194,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
-    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
-    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[设计模式-工厂模式-简单工厂模式]]></title>
     <url>%2F2019%2F01%2F09%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[简单工厂模式介绍###模型原理 组成 关系 作用 抽象产品 具体产品父类 描述产品的功能公共接口 具体产品 抽象产品的子类：由工厂创造 生产具体产品 工厂 被外界调用：创建抽象产品子类 根据传参产生具体实例 UML 类图 Video :抽象产品父类 VideoFaction:工厂 PythonVideo JavaVideo : 具体实现类 由工厂创建 使用步骤 创建抽象产品父类 创建具体产品类 创建工厂类 外部调用 Java代码实现实例 创建抽象产品类 12345678910public abstract class Video &#123; /** * @Author Gyc * @Description 所有产品通用方法 录制视频 * @Date 10:43 2019-04-29 * @Param [] * @return void **/ public abstract void produce();&#125; 创建子类实现 1234567891011121314public class PythonVideo extends Video &#123; @Override public void produce() &#123; System.out.println("录制Python视频"); &#125;&#125;public class JavaVideo extends Video &#123; @Override public void produce() &#123; System.out.println("录制java视频"); &#125;&#125; 3.创建工厂实现 1234567891011121314151617181920212223242526272829303132333435363738394041424344public class VideoFaction &#123; /** * @Author Gyc * @Description //TODO 不使用简单反射创建实例 * @Date 14:24 2019-04-29 * @Param [type] * @return com.zerolg.designmode.operation_factory.Video **/ public Video getVido(String type) &#123; if (type.equalsIgnoreCase("java")) &#123; return new JavaVideo(); &#125; else if (type.equalsIgnoreCase("python"))&#123; return new PythonVideo(); &#125; else &#123; return null; &#125; &#125; /** * @return com.zerolg.designmode.operation_factory.Video * @Author Gyc * @Description //TODO 用反射创建 * @Date 11:12 2019-04-29 * @Param [video] **/ public static Video getVido(Class v) &#123; Video video = null; try &#123; video = (Video) Class.forName(v.getName()).newInstance(); &#125; catch (ClassNotFoundException e) &#123; e.printStackTrace(); &#125; catch (IllegalAccessException e) &#123; e.printStackTrace(); &#125; catch (InstantiationException e) &#123; e.printStackTrace(); &#125; return video; &#125;&#125; 外界传参数调用 12345678910111213141516171819public class Test &#123; public static void main(String[] args) &#123; /*直接使用工厂创建实例*/ VideoFaction videoFaction = new VideoFaction(); Video video2 = videoFaction.getVido("java"); if (video == null) &#123; return; &#125; video2.produce(); /* 使用反射创建实例*/ VideoFaction videoFaction = new VideoFaction(); Video vido = videoFaction.getVido(JavaVideo.class); vido.produce(); &#125;&#125; 优缺点分析优点: 将创建的实例的工作与实例工作分开，使用者不必关心类对象的如何创建，实现了解耦 将实例初始化放在工厂中，让代码更容易维护，符合面向对象的原则，面向接口编程 缺点: 工厂中集合了所以的实例创造，一旦工厂出现问题，将影响整个系统 简单工厂模式由于使用了静态工厂方法，静态方法不能被继承和重写，会造成工厂角色无法形成基于继承的等级结构 当不使用反射创建实例时,违背“开放 - 关闭原则”，一旦添加新产品就不得不修改工厂类的逻辑，这样就会造成工厂逻辑过于复杂 应用场景 当对如何创建对象逻辑不关心，只关心产生的实例 当工厂类负责创建的对象比较少时(创建对象过多会造成的工厂逻辑过于复杂)]]></content>
@@ -203,6 +203,17 @@
       <tags>
         <tag>工厂模式</tag>
         <tag>简单工厂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
+    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
+    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
