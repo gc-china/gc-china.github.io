@@ -92,24 +92,22 @@
 
 
 
-<meta name="description" content="记录下Redis 在Mac中安装和使用">
+<meta name="description" content="redis在Mac中安装和基本使用">
 <meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis在Mac中安装和基本使用">
 <meta property="og:url" content="https://www.zerolg.com/2019/07/21/redis在Mac中安装和基本使用/index.html">
 <meta property="og:site_name" content="zerolg`blog">
-<meta property="og:description" content="记录下Redis 在Mac中安装和使用">
+<meta property="og:description" content="redis在Mac中安装和基本使用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog.6ag.cn/wp-content/uploads/2019/04/image-3-1024x594.png">
 <meta property="og:image" content="https://blog.6ag.cn/wp-content/themes/begin/img/blank.gif">
-<meta property="og:image" content="https://blog.6ag.cn/wp-content/themes/begin/img/blank.gif">
-<meta property="og:image" content="https://blog.6ag.cn/wp-content/themes/begin/img/blank.gif">
 <meta property="og:image" content="https://blog.6ag.cn/wp-content/uploads/2019/04/image-9-1024x633.png">
 <meta property="og:image" content="https://blog.6ag.cn/wp-content/uploads/2019/04/image-10-1024x688.png">
-<meta property="og:updated_time" content="2019-07-21T09:32:37.741Z">
+<meta property="og:updated_time" content="2019-07-22T05:01:29.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis在Mac中安装和基本使用">
-<meta name="twitter:description" content="记录下Redis 在Mac中安装和使用">
+<meta name="twitter:description" content="redis在Mac中安装和基本使用">
 <meta name="twitter:image" content="https://blog.6ag.cn/wp-content/uploads/2019/04/image-3-1024x594.png">
 
 
@@ -418,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  442
+                  436
                 </span>
               
 
@@ -442,7 +440,7 @@
 
           
               <div class="post-description">
-                  记录下Redis 在Mac中安装和使用
+                  redis在Mac中安装和基本使用
               </div>
           
 
@@ -460,7 +458,7 @@
 
       
         <h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p>官方网站：<a href="https://blog.6ag.cn/wp-content/themes/begin/inc/go.php?url=https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a> 下载 <strong>Stable</strong> 稳定版。</p>
-<p><img src="https://blog.6ag.cn/wp-content/uploads/2019/04/image-3-1024x594.png" alt="Redis 在 Mac 下的安装与使用">最新稳定版是5.0.4</p>
+<p><img src="https://blog.6ag.cn/wp-content/uploads/2019/04/image-3-1024x594.png" alt>最新稳定版是5.0.4</p>
 <p>解压压缩包：<code>tar zxvf redis-5.0.4.tar.gz</code></p>
 <p>移动目录：<code>sudo mv redis-5.0.4 /usr/local/redis-5.0.4</code></p>
 <p>切换目录：<code>cd /usr/local/redis-5.0.4</code></p>
@@ -470,9 +468,7 @@
 <p>启动 Redis 服务命令<code>redis-server</code> 和 Redis 客户端命令 <code>redis-cli</code> 命令在 src 目录下。</p>
 <p>方式一：<code>redis-server</code> ，这种方式启动，关掉终端或者 <strong>ctrl + c</strong> 快捷键，可以退出 Redis 服务。</p>
 <p>注意：我写笔记的时候，Redis 已经安装过了，所以截图中的版本和上面执行安装的版本不一致，截图可忽略版本号。</p>
-<p><img src="https://blog.6ag.cn/wp-content/themes/begin/img/blank.gif" alt="Redis 在 Mac 下的安装与使用">方式一</p>
 <p>方式二： <code>redis-server /usr/local/redis-5.0.4/redis.conf</code> ，这种方式启动可以让 Redis 服务在后台运行，关闭终端也不会退出 Redis 服务。</p>
-<p><img src="https://blog.6ag.cn/wp-content/themes/begin/img/blank.gif" alt="Redis 在 Mac 下的安装与使用">方式二</p>
 <h3 id="启动-Redis-客户端"><a href="#启动-Redis-客户端" class="headerlink" title="启动 Redis 客户端"></a>启动 Redis 客户端</h3><p>执行命令：<code>redis-cli</code> ，可进入 Redis 客户端 。</p>
 <p><img src="https://blog.6ag.cn/wp-content/themes/begin/img/blank.gif" alt="Redis 在 Mac 下的安装与使用">redis 客户端</p>
 <p>客户端常用命令：</p>
