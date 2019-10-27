@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue 的学习笔记之生命周期钩子]]></title>
+    <url>%2F2019%2F10%2F28%2FVue-%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%2F</url>
+    <content type="text"><![CDATA[@[toc]我的个人博客:zerolg 欢迎来访！ Vue 的生命周期函数什么是生命周期函数 生命周期函数就是在某个时间点会自动执行的函数 Vue 的生命周期函数Vue 的生命周期函数不需要写在Vue 的 Method 中 、 beforCreate() : 当在创建Vue 实例初始化结束后自动执行 created(): 当初始化外部的注入 数据的双向绑定后自动执行 beforMount(): 第一步询问是否有el 标签 在询问 是否有template 模版 如果有则用模版 渲染 没有则用el 包含的容器为模版渲染模模版版和数据挂载前执行 mounted():在数据和模版挂载后自动执行 beforeDestroy(): 当组件被即将被销毁时 destroyed():当组件完全被销毁时 beforeUpdate: 当数据发生改变时,页面还没许渲染执行前 Updated:当数据发生改变 页面重新渲染后 实例代码12345678910111213141516171819202122232425262728293031323334beforeCreate: function () &#123; console.log(&quot;beforeCreate&quot;); &#125;, //在创建实例后对外部注入和数据双向绑定后自动执行 created: function () &#123; console.log(&quot;created&quot;); &#125;, //在数据渲页面挂载前自动执行 beforeMount: function () &#123; console.log(this.$el); console.log(&quot;beforeMount&quot;); &#125;, //在数据挂载后自动执行 mounted: function () &#123; console.log(this.$el); console.log(&apos;mounted&apos;); &#125;, //在实例组件被销毁之前 beforeDestroy: function () &#123; console.log(&quot;beforeDestroy&quot;) &#125;, //在实例被销毁只后 destroyed: function () &#123; console.log(&apos;destroyed&apos;); &#125;, //数据更新的时候 页面还没渲染之前 beforeUpdate: function () &#123; console.log(&apos;beforeUpdate&apos;); &#125;, //数据渲染之后 页面渲染后 updated: function () &#123; console.log(&apos;updated&apos;) &#125; 生命周期图示]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>生命周期钩子</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关闭vmwareFusion在Mac菜单栏的图标和开机自启]]></title>
     <url>%2F2019%2F08%2F04%2FFusion%E5%9C%A8Mac%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%9A%84%E5%9B%BE%E6%A0%87%E5%92%8C%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%2F</url>
     <content type="text"><![CDATA[关闭VMware Fusion在Mac菜单栏的图标和开机自启今天装了下虚拟机，发现我明明退出了虚拟器菜单栏还是现实虚拟机的图标，看的特别不顺眼，于是Google各种方法找到了一个比较有效的方式，但是他那个只是关闭图标，重启电脑后这个软件还是会重启的，所以我想把这个图标在这个软件运行的时候才会现实，毕竟上面还有些功能可以使用的。 关闭开机自启 系统偏好设置 ==》用户与群组 ==》 选择当前用户 ==》点击右边的登录项 ==》选中VMware ==》 点击下面的减号删除VMware登录项。 设置菜单栏图标在运行期间才显示 打开VMware Fusion 点击左上角VMware Fusion 标志（苹果图标旁边那个） 选择偏好设置 （也可以把2，3合并，直接按command+,快捷键） 在常规页签中找到应用程序菜单：在菜单中显示的下拉框 切换为仅在运行Fusion时（这里按照自己的喜好设置吧） 设置后VMware Fusion就不会开机自己，那个图标也只有在运行时显示，或者你设置永不显示就再也不会显示这个图标在菜单栏了]]></content>
@@ -231,8 +243,8 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>工厂模式</tag>
         <tag>工厂方法</tag>
+        <tag>工厂模式</tag>
       </tags>
   </entry>
   <entry>
