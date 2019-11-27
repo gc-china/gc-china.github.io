@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Vue的小注意点’]]></title>
-    <url>%2F2019%2F11%2F27%2F%E7%9A%84%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9%E2%80%99%2F</url>
+    <title><![CDATA[Vue的小注意点]]></title>
+    <url>%2F2019%2F11%2F27%2FVue%E7%9A%84%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9%2F</url>
     <content type="text"><![CDATA[Vue 中 使用时注意点 在使用子组件的时候 出现一些不兼容的Bug 123456789101112131415161718192021&lt;div id=&quot;app&quot;&gt; &lt;table&gt; &lt;tbody&gt; &lt;row&gt;&lt;/row&gt; &lt;row&gt;&lt;/row&gt; &lt;row&gt;&lt;/row&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;/div&gt;&lt;script&gt; Vue.component(&apos;row&apos;, &#123; template: &apos;&lt;tr&gt;&lt;td&gt;hello word&lt;/td&gt;&lt;/tr&gt;&apos; &#125;) const vm = new Vue(&#123; el: &quot;#app&quot;, data: &#123;&#125;, &#125;)&lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 我们本来要出现的结果是 table 中 tbody有三个tr 的效果 但是在html5中规定tbody 下必须tr 而我们使用自己的定义的组件 所以浏览器在解析的时候就出现问题 tr 和table 同级了。这时候我们就可以使用 vue 中提供的is 来解决 1234567&lt;table&gt; &lt;tbody&gt; &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt; &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt; &lt;tr is=&quot;row&quot;&gt;&lt;/tr&gt; &lt;/tbody&gt;&lt;/table&gt; 这样也是我们想要的结果了 当自定义子组件设置数据时，我们像原来设置数据一样设置123456Vue.component(&apos;row&apos;, &#123; template: &apos;&lt;tr&gt;&lt;td&gt;&#123;&#123;title&#125;&#125;&lt;/td&gt;&lt;/tr&gt;&apos;, data: &#123; title: &quot;hello word&quot; &#125; &#125;) 而这个时候却会提示出现错误 ,提示我们data 必须是个函数 不能是个对象 这么是设计的原因是 每个字组件必须有一个自己的独立的数据存储！ 12345678Vue.component(&apos;row&apos;, &#123; template: &apos;&lt;tr&gt;&lt;td&gt;&#123;&#123;title&#125;&#125;&lt;/td&gt;&lt;/tr&gt;&apos;, data: function () &#123; return &#123; title: &quot;hello word&quot; &#125; &#125; &#125;) ref 的使用 当ref 使用在普通标签上时 this.$refs.ref绑定的值获取的是标签的dom 元素 当ref 使用在组件上时 获取的是组件的引用]]></content>
       <tags>
         <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[‘记录这两个月的总结’]]></title>
-    <url>%2F2019%2F11%2F09%2F%E2%80%98%E8%AE%B0%E5%BD%95%E8%BF%99%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%80%BB%E7%BB%93%E2%80%99%2F</url>
+    <title><![CDATA[记录这两个月的总结]]></title>
+    <url>%2F2019%2F11%2F09%2F%E8%AE%B0%E5%BD%95%E8%BF%99%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[今天突然被老板叫去办公室谈话 突然告诉我试用期结束你不合格 明天就不用来了！ 当时虽然表现的很淡定 当回到办公桌的时候顿时觉得自己浑身无力。 一种挫败感在我脑中。我在想来公司两个月了 虽然公司不大 但是对于我来说能有个工作慢慢学 一步一步来就行 但是在我没把公司开了的时候,公司却把我开了 顿时怀疑起自己专业能力来了。我到底哪里做的不好 我也为公司奉献这么多了 每天8.00多下班 天天加班最晚凌晨平常9.00 多 为什么公司会让我不过试用期！ 在回到家一直颓废两天后 一直在考虑着两个月中我哪里做的有问题我现在改怎么办 所以在回顾了自己这个月的经历后以及对老板进行询问给我的反馈 总结了自己一下做的不足以及问题点！ 对自己要求不高 ,在老板要求学css和thmself 的时候 都只是学学而已 能够使用就行 而没有深入学习 导致遇到问题的时候不能解决 从一开始满怀希望的进入公司 到后面习以为常 搞错了个人身份 还说以学生的态度在工作。没转换过来身份 都以为是在学校不懂就问,导致工作效率比较低 在公司有一段加班时间太长 对公司产生了厌烦心态 工作不够用心 ,以及态度不够端正。还将神情表现在脸上 导致工作效率以及态度过于差！ 对同事过于谈心 将自己什么想法和不满以朋友的姿态与同事分享 后发现有点事情同事就是同事 对于老板以朋友的状态去相处以为有什么问题可以直接说 其实工作就是一种雇佣关系 不是和老板打好关系什么的 就行还是看自己能够奉献多少价值。 ​ 总结:在工作中没有认清自己的定位 还以学生的姿态去处事工作。导致这次工作的失败，不过在这次工作中也让自己有一定的收获。也借此对自己的问题进行反省总结一下希望下次能够更好的避免]]></content>
       <categories>
         <category>杂谈</category>
@@ -278,17 +278,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
-    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
-    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[设计模式-工厂模式-简单工厂模式]]></title>
     <url>%2F2019%2F01%2F09%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[简单工厂模式介绍###模型原理 组成 关系 作用 抽象产品 具体产品父类 描述产品的功能公共接口 具体产品 抽象产品的子类：由工厂创造 生产具体产品 工厂 被外界调用：创建抽象产品子类 根据传参产生具体实例 UML 类图 Video :抽象产品父类 VideoFaction:工厂 PythonVideo JavaVideo : 具体实现类 由工厂创建 使用步骤 创建抽象产品父类 创建具体产品类 创建工厂类 外部调用 Java代码实现实例 创建抽象产品类 12345678910public abstract class Video &#123; /** * @Author Gyc * @Description 所有产品通用方法 录制视频 * @Date 10:43 2019-04-29 * @Param [] * @return void **/ public abstract void produce();&#125; 创建子类实现 1234567891011121314public class PythonVideo extends Video &#123; @Override public void produce() &#123; System.out.println("录制Python视频"); &#125;&#125;public class JavaVideo extends Video &#123; @Override public void produce() &#123; System.out.println("录制java视频"); &#125;&#125; 3.创建工厂实现 1234567891011121314151617181920212223242526272829303132333435363738394041424344public class VideoFaction &#123; /** * @Author Gyc * @Description //TODO 不使用简单反射创建实例 * @Date 14:24 2019-04-29 * @Param [type] * @return com.zerolg.designmode.operation_factory.Video **/ public Video getVido(String type) &#123; if (type.equalsIgnoreCase("java")) &#123; return new JavaVideo(); &#125; else if (type.equalsIgnoreCase("python"))&#123; return new PythonVideo(); &#125; else &#123; return null; &#125; &#125; /** * @return com.zerolg.designmode.operation_factory.Video * @Author Gyc * @Description //TODO 用反射创建 * @Date 11:12 2019-04-29 * @Param [video] **/ public static Video getVido(Class v) &#123; Video video = null; try &#123; video = (Video) Class.forName(v.getName()).newInstance(); &#125; catch (ClassNotFoundException e) &#123; e.printStackTrace(); &#125; catch (IllegalAccessException e) &#123; e.printStackTrace(); &#125; catch (InstantiationException e) &#123; e.printStackTrace(); &#125; return video; &#125;&#125; 外界传参数调用 12345678910111213141516171819public class Test &#123; public static void main(String[] args) &#123; /*直接使用工厂创建实例*/ VideoFaction videoFaction = new VideoFaction(); Video video2 = videoFaction.getVido("java"); if (video == null) &#123; return; &#125; video2.produce(); /* 使用反射创建实例*/ VideoFaction videoFaction = new VideoFaction(); Video vido = videoFaction.getVido(JavaVideo.class); vido.produce(); &#125;&#125; 优缺点分析优点: 将创建的实例的工作与实例工作分开，使用者不必关心类对象的如何创建，实现了解耦 将实例初始化放在工厂中，让代码更容易维护，符合面向对象的原则，面向接口编程 缺点: 工厂中集合了所以的实例创造，一旦工厂出现问题，将影响整个系统 简单工厂模式由于使用了静态工厂方法，静态方法不能被继承和重写，会造成工厂角色无法形成基于继承的等级结构 当不使用反射创建实例时,违背“开放 - 关闭原则”，一旦添加新产品就不得不修改工厂类的逻辑，这样就会造成工厂逻辑过于复杂 应用场景 当对如何创建对象逻辑不关心，只关心产生的实例 当工厂类负责创建的对象比较少时(创建对象过多会造成的工厂逻辑过于复杂)]]></content>
@@ -298,6 +287,17 @@
       <tags>
         <tag>工厂模式</tag>
         <tag>简单工厂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deepin安装MySQL没有弹出设置root密码怎么进行修改]]></title>
+    <url>%2F2019%2F01%2F09%2Fdeepin%E5%AE%89%E8%A3%85MySQL%E6%B2%A1%E6%9C%89%E5%BC%B9%E5%87%BA%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%2F</url>
+    <content type="text"><![CDATA[1. 首先使用apt命令安装mysql（默认安装的最新5.7）1sudo apt-get update 1sudo apt-get install mysql-server mysql-client 2.修改my.cnf,不过我修改之后报错，最后修改的是 `1/etc/mysql/mysql.conf.d/mysqld.cnf 3.最文件最底下插入一条：1skip-grant-tables 4.然后重启mysql服务1sudo service mysql restart 5.shell直接使用root进去1mysql -uroot -p 6.修改密码1ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '要设置的密码'; 7.退出，重新启动mysql 服务12exit 12sudo service mysql restart 8.用密码登入1mysql -uroot -p 然后输入你修改的密码，这时密码是不会显示的，直接回车就行，出现这个就是登入成功了！]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
